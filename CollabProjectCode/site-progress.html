@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"></html>
+<!--
+    File Name: siteProgress.html
+    Author: Computing without design - Avery Taggart st20265497(@outlook.cardiffmet.ac.uk)
+    Date: Start 03/03/24 - End NA/NA/24
+    Version Info: Use to create a site progress navbar
+    Other infomation: This is just the site progress bar and is just meant  for copy and pasteing
+-->
+<head>
+    <meta charset="utf-8" /> <!--Most up to date charecter set-->
+    <title>This is just the progress nav</title>
+    
+</head>
+<body>    
+<main>
+    <style>
+        * /*This applies to all of the site and changes the font*/
+         {
+            margin: 0; 
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif; /*TBD*/
+            box-sizing: border-box;
+         }
+         .nav-site-progress
+        {
+            padding: 4%;
+            justify-content: space-between;
+            float: left;
+            width: 100%;
+        }
+        .nav-site-progress a
+        {
+            color: black;
+            font-size: 1.2em;
+            font-weight: 300;
+            transition: font-size 0.3s;
+            transition: font-weight 0.3;
+        }
+        .nav-site-progress a::after 
+        {
+            content: "|";
+            padding: 8px;
+            font-size: 1.1em;
+        }
+        .nav-site-progress a:hover
+        {
+            font-weight: 400;
+            font-size: 1.3em;
+        }
+        .nav-site-progress hr
+        {
+          border: 0;
+          height: 3px;
+          width: 100%;
+          background: gray;
+          margin: 13px 0 2px;
+        }
+    </style>
+ 
+ <nav class="nav-site-progress">
+    <a href="#">Main Menu</a>
+    <a href="#">List View</a>
+    <hr>
+  </nav>
+
+</main>
+</body>
+</html>

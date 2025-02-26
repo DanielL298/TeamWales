@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"></html>
+<!--
+    File Name: Navbar.html
+    Author: Computing without design - Avery Taggart st20265497(@outlook.cardiffmet.ac.uk)
+    Date: Start 24/02/24 - End NA/NA/24
+    Version Info: Navbar fully working with html, css, script
+    Other infomation: This file is just the navbar allowing it to be copied and edited outside of another webpage.
+-->
+<head>
+    <meta charset="utf-8" /> <!--Most up to date charecter set-->
+    <title>This is just the navbar</title>
+    
+</head>
+<body>    
+<main>
+    <style>
+        * /*This applies to all of the site and changes the font*/
+       {
+          margin: 0; 
+          padding: 0;
+          font-family: Arial, Helvetica, sans-serif; 
+          box-sizing: border-box;
+       }
+      .nav-top
+      {
+          background: rgb( 110, 179, 205); /*Standard blue we have*/
+          width: 100%;
+          padding: 10px 10%; /*10px and 10%*/
+          display: flex;
+          align-items: center; /*start everything from center*/
+          justify-content: space-between; /*Dictates how the content will be spaced*/
+          position: relative;
+      }
+      .logo
+      {
+          width: 75px;
+      }
+      .user-pic
+      {
+          width: 50px;
+          border-radius: 50%; /*Adds the border to the user pic*/
+          cursor: pointer; /*Allows the cursor to */
+          margin-left: 30px;
+      }
+      nav ul /*All of this sectoin only applues to the site name*/
+      {
+          width: 100%;
+          text-align: left;
+      }
+      nav ul li /*These bits are here if we want to add anything more*/
+      {
+          display: inline-block;
+          list-style: none;
+          margin: 10px 20px;
+      }
+      nav ul li a /*This is what applies to the site title specificly*/
+      {
+          color: black;
+          font-size: 1.78em;
+          font-weight: 500;
+          text-decoration: none;
+      }
+      .sub-menu-wrap /*What is applied around the sub menu to gibve it a box */
+      {
+          position: absolute; /*Possition is pre determined and will never change*/
+          top: 100%;
+          right: 15%;
+          width: 320px;
+          max-height: 0px; /*Starts hidden*/
+          overflow: hidden; /*Just incase hide overflow from the menu*/
+          transition: max-height 0.5s; /*Will change the height over the course of 0.5s*/
+      }
+      .sub-menu-wrap.open-menu /*When clicked on it will change over to 400px*/
+      {
+          max-height: 500px;
+      }
+      .sub-menu 
+      {
+          background: #ffff;
+          border: 2px solid black;
+          border-radius: 8px;
+          padding: 20px;
+          margin: 10px;
+      }
+      .user-info /*The users username and picture*/
+      {
+          display: flex;
+          align-items: center;
+      }
+      .user-info h3
+      {
+          font-weight: 500;
+      }
+      .user-info img
+      {
+          width: 60px;
+          border-radius: 50%;
+          margin-right: 15px;
+      }
+      .sub-menu hr /*line breaks in the submenu*/
+      {
+          border: 0;
+          height: 3px;
+          width: 100%;
+          background: #ccc;
+          margin: 15px 0 10px;
+      }
+      .sub-menu-link
+      {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: #525252;
+          margin: 12px 0;
+      }
+      .sub-menu-link p
+      {
+          width: 100%;
+      }
+      .sub-menu-link img
+      {
+          width: 40px;
+          background: #e5e5e5;
+          border-radius: 50%;
+          padding: 8px;
+          margin-right: 15px;
+      }
+      .sub-menu-link span /*The > at the end of the links*/
+      {
+          font-size: 22px;
+      }
+      .sub-menu-link:hover span /*When hovering over the text and > make it bold*/
+      {
+          font-weight: 600;
+      }
+      .sub-menu-link:hover p
+      {
+          font-weight: 600;
+      }
+
+    </style>
+        <nav class="nav-top">
+            <img src="images/Logo.PNG" class="logo"> <!--The logo-->
+            <ul>
+                <li><a href="Main menu.html">RentmyCaravan.io</a></li> <!--The site title, able to be clicked to go back to the main menu-->
+            </ul>
+            <img src="images/profile photo.PNG" class="user-pic" onclick="toggleMenu()"> <!--Triggers the script to transition to the submenu-->
+            <div class="sub-menu-wrap" id="subMenu"> <!--Surounds the submenu-->
+                <div class="sub-menu"> <!--The actual submenu-->
+                    <div class="user-info"> <!--Anything to do with the user like profile pic and username-->
+                        <img src="images/profile photo.PNG">
+                        <h2>Dannissoepic</h2>
+                    </div>
+                    <hr> <!--A break line-->
+                    <a href="ListView.html" class="sub-menu-link"> <!--Where it links to-->
+                        <img src="images/list.PNG"> <!--The image for it-->
+                        <p>List view</p> <!--What the user sees-->
+                        <span>></span> <!--Makes it look nicer as a line-->
+                    </a>
+                    <a href="AddScreen.html" class="sub-menu-link">
+                        <img src="images/+.PNG">
+                        <p>Add a caravan</p>
+                        <span>></span>
+                    </a>
+                    <a href="Edit.html" class="sub-menu-link">
+                        <img src="images/empty profile.PNG">
+                        <p>Profile</p>
+                        <span>></span>
+                    </a>
+                    <hr>
+                    <a href="" class="sub-menu-link">
+                        <img src="images/setting.PNG">
+                        <p>Settings</p>
+                        <span>></span>
+                    </a>
+                    <a href="Main menu.html" class="sub-menu-link">
+                        <img src="images/signout.PNG">
+                        <p>Sign out</p>
+                        <span>></span>
+                    </a>
+                    <hr>
+                </div>
+            </div>
+        </nav>
+</main>
+<script>
+    let subMenu = document.getElementById("subMenu"); //let submenu be called by the id submenu
+    function toggleMenu() //The actual function being called
+    {
+        subMenu.classList.toggle("open-menu"); //toggle the open menu css class
+    }
+</script>
+</body>
+</html>

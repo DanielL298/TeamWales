@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"></html>
+<!--
+    File Name: About.html
+    Author: Computing without design 
+    Date: Start 27/02/24 - End NA/NA/24
+    Version Info: Should be nearly finished as this is a very basic version
+    Other infomation: 
+-->
+<head>
+    <meta charset="utf-8" /> <!--Most up to date charecter set-->
+    <title>About us - RentmyCaravan.io</title>
+    <style>
+         * /*This applies to all of the site and changes the font*/
+       {
+          margin: 0; 
+          padding: 0;
+          font-family: Arial, Helvetica, sans-serif; 
+          box-sizing: border-box;
+       }
+      .nav-top
+      {
+          background: rgb( 110, 179, 205); /*Standard blue we have*/
+          width: 100%;
+          padding: 10px 10%; /*10px and 10%*/
+          display: flex;
+          align-items: center; /*start everything from center*/
+          justify-content: space-between; /*Dictates how the content will be spaced*/
+          position: relative;
+      }
+      .logo
+      {
+          width: 75px;
+      }
+      .user-pic
+      {
+          width: 50px;
+          border-radius: 50%; /*Adds the border to the user pic*/
+          cursor: pointer; /*Allows the cursor to */
+          margin-left: 30px;
+      }
+      nav ul /*All of this sectoin only applues to the site name*/
+      {
+          width: 100%;
+          text-align: left;
+      }
+      nav ul li /*These bits are here if we want to add anything more*/
+      {
+          display: inline-block;
+          list-style: none;
+          margin: 10px 20px;
+      }
+      nav ul li a /*This is what applies to the site title specificly*/
+      {
+          color: black;
+          font-size: 1.78em;
+          font-weight: 500;
+          text-decoration: none;
+      }
+      .sub-menu-wrap /*What is applied around the sub menu to gibve it a box */
+      {
+          position: absolute; /*Possition is pre determined and will never change*/
+          top: 100%;
+          right: 15%;
+          width: 320px;
+          max-height: 0px; /*Starts hidden*/
+          overflow: hidden; /*Just incase hide overflow from the menu*/
+          transition: max-height 0.5s; /*Will change the height over the course of 0.5s*/
+      }
+      .sub-menu-wrap.open-menu /*When clicked on it will change over to 400px*/
+      {
+          max-height: 500px;
+      }
+      .sub-menu 
+      {
+          background: #ffff;
+          border: 2px solid black;
+          border-radius: 8px;
+          padding: 20px;
+          margin: 10px;
+      }
+      .user-info /*The users username and picture*/
+      {
+          display: flex;
+          align-items: center;
+      }
+      .user-info h3
+      {
+          font-weight: 500;
+      }
+      .user-info img
+      {
+          width: 60px;
+          border-radius: 50%;
+          margin-right: 15px;
+      }
+      .sub-menu hr /*line breaks in the submenu*/
+      {
+          border: 0;
+          height: 3px;
+          width: 100%;
+          background: #ccc;
+          margin: 15px 0 10px;
+      }
+      .sub-menu-link
+      {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: #525252;
+          margin: 12px 0;
+      }
+      .sub-menu-link p
+      {
+          width: 100%;
+      }
+      .sub-menu-link img
+      {
+          width: 40px;
+          background: #e5e5e5;
+          border-radius: 50%;
+          padding: 8px;
+          margin-right: 15px;
+      }
+      .sub-menu-link span /*The > at the end of the links*/
+      {
+          font-size: 22px;
+      }
+      .sub-menu-link:hover span /*When hovering over the text and > make it bold*/
+      {
+          font-weight: 600;
+      }
+      .sub-menu-link:hover p
+      {
+          font-weight: 600;
+      }
+        /*From here it affects the content of the page*/
+        .page-content h2
+        {
+            font-weight: 300;
+            text-align: center;
+            padding-top: 2%;
+        }
+        .page-content p
+        {
+            padding: 5%;
+        }
+        .page-content hr
+        {
+            height: 3px;
+            width: 100%;
+            text-align: center;
+            background: black;
+            margin: 15px 0 10px;
+        }
+        .page-content h3
+        {
+            text-align: left;
+            padding-top: 5pxa;
+            padding: 10px;
+        }
+        .page-content img
+        {
+            float: right;
+            
+            max-height: 200px;
+            max-width: 150px;
+        }
+        .nav-site-progress
+        {
+            padding: 4%;
+            justify-content: space-between;
+            float: left;
+            width: 100%;
+        }
+        .nav-site-progress a
+        {
+            color: black;
+            font-size: 1.2em;
+            font-weight: 300;
+            transition: font-size 0.3s;
+            transition: font-weight 0.3;
+        }
+        .nav-site-progress a::after 
+        {
+            content: "|";
+            padding: 8px;
+            font-size: 1.1em;
+        }
+        .nav-site-progress a:hover
+        {
+            font-weight: 400;
+            font-size: 1.3em;
+        }
+        .nav-site-progress hr
+        {
+          border: 0;
+          height: 3px;
+          width: 100%;
+          background: gray;
+          margin: 13px 0 2px;
+        }
+
+    </style>
+</head>
+<body>    
+<main>
+        <nav class="nav-top">
+            <img src="images/Logo.PNG" class="logo"> <!--The logo-->
+            <ul>
+                <li><a href="#">RentmyCaravan.io</a></li> <!--The site title, able to be clicked to go back to the main menu-->
+            </ul>
+            <img src="images/profile photo.PNG" class="user-pic" onclick="toggleMenu()"> <!--Triggers the script to transition to the submenu-->
+            <div class="sub-menu-wrap" id="subMenu"> <!--Surounds the submenu-->
+                <div class="sub-menu"> <!--The actual submenu-->
+                    <div class="user-info"> <!--Anything to do with the user like profile pic and username-->
+                        <img src="images/profile photo.PNG">
+                        <h2>Dannissoepic</h2>
+                    </div>
+                    <hr> <!--A break line-->
+                    <a href="#" class="sub-menu-link"> <!--Where it links to-->
+                        <img src="images/list.PNG"> <!--The image for it-->
+                        <p>List view</p> <!--What the user sees-->
+                        <span>></span> <!--Makes it look nicer as a line-->
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="images/+.PNG">
+                        <p>Add a caravan</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="images/empty profile.PNG">
+                        <p>Profile</p>
+                        <span>></span>
+                    </a>
+                    <hr>
+                    <a href="#" class="sub-menu-link">
+                        <img src="images/setting.PNG">
+                        <p>Settings</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="images/signout.PNG">
+                        <p>Sign out</p>
+                        <span>></span>
+                    </a>
+                    <hr>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="nav-site-progress">
+            <a href="#">Main Menu</a>
+            <a href="#">List View</a>
+            <hr>
+          </nav>
+
+        <div class="page-content">
+            <h2>What is this?</h2>
+            <p>This is the assessment for the module Web Design and Databases (SEN4001). This site is meant to be a system that will be able to book and list local / nearby caravans for the Cardiff and wider Cardiff area. We have strived to make this site useable and to make a system that people will want to use by driving this local company into the modern age with an up-to-date design. We have tried to ensure that the site's design is effective to ensure the experience is the best it can be for all users.  We have used many different design principles and concepts to make a site that should be easy to use for many different groups and ages of users.</p>
+            <hr>
+            <h2>Who are we?</h2>
+            <p>We are “Design without thinking”. We are a group made up of students all from the design thinking course. We have already done previous web development assessments and projects se we have a strength within this type of work / assessment. This project is the first group project that we have done but we believe that we will work together well and trust that our end product will be of a high standard as we know we can produce sites of that quality.</p>
+            <hr>
+            <h2>Our team:</h2>
+            <h3>Nia Atkins: st20231654 - @outlook.cardiffmet.ac.uk</h3>
+            <br>
+            <h3>Owen Phillips: st20268552 - @outlook.cardiffmet.ac.uk</h3>
+            <br>
+            <h3>Avery Taggart: st20265497 - @outlook.cardiffmet.ac.uk</h3>
+            <br>
+            <h3>Dan Lord: st202700440 - @outlook.cardiffmet.ac.uk</h3>
+            <img src="images/group-photo.jpg">            
+        </div>
+</main>
+<script>
+    let subMenu = document.getElementById("subMenu"); //let submenu be called by the id submenu
+    function toggleMenu() //The actual function being called
+    {
+        subMenu.classList.toggle("open-menu"); //toggle the open menu css class
+    }
+</script>
+</body>
+</html>

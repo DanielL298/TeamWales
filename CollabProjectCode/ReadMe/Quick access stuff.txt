@@ -1,0 +1,30 @@
+RGB values:
+Blue: 110 179 205
+Dark green: 057 075 043
+Light green: 000 156 000
+Black: standard black
+gray:standard gray
+
+
+Include this at the top of all of the files and in author say that you wokred on this version
+<!--
+    File Name: ListView.html
+    Author: Computing without design
+    Date: Start 30/01/24 - End NA/NA/24
+    Version Info: Base HTML code and internal css
+    Other infomation: Use of internal css images are included within the file - STC = Subject to change
+-->
+
+.caravan-section
+        {
+            margin-left: 15px;
+        }
+        .caravan-section h2
+        {
+            float: right;
+            margin-right: 30px;
+        }
+        .caravan-section h3
+        {
+            float: right;
+        }
