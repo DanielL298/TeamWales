@@ -10,7 +10,7 @@
     -->
 
 
-<head>
+    <head>
 <style>
 
 </style>
@@ -68,12 +68,12 @@ if (isset($_POST['submit'])) {
     $athletes = mysqli_real_escape_string($con, $_POST['athletes']);
     $medals = mysqli_real_escape_string($con, $_POST['medals_won']);
 
-    // Check if sport ID exists preventing data redundancy.
-    $verify_query2 = mysqli_query($con, "SELECT sport_id FROM sports_info WHERE sport_id ='$sport_Id'");
+    // Check if sport name exists preventing data redundancy.
+    $verify_query2 = mysqli_query($con, "SELECT sport_name FROM sports_info WHERE sport_name ='$sport_Name'");
 
-    if (mysqli_num_rows($verify_query2) != 0 && $sport_Id != $res_id) {
+    if (mysqli_num_rows($verify_query2) != 0 && $sport_Name != $res_name) {
         echo "<div class='message'>
-        <p>This Sport ID is already in use, try another</p>
+        <p>This Sport Name is already in use, try another</p>
         </div> <br>";
         echo "<a href='javascript:self.history.back();'><button class='btn'>Go Back</button></a>"; 
     } else {

@@ -43,11 +43,11 @@ if (isset($_POST['submit'])) {
     $medals_won = $_POST['medals_won'];
 
     // Check if sport ID already exists in the database
-    $verify_query2 = mysqli_query($con, "SELECT sport_id FROM sports_info WHERE sport_id ='$sport_id'");
+    $verify_query2 = mysqli_query($con, "SELECT sport_name FROM sports_info WHERE sport_name ='$sport_name'");
 
     if (mysqli_num_rows($verify_query2) != 0) {
         echo "<div class='message'>
-        <p> This Sport ID is already used, Try another</p>
+        <p> This Sport Name is already used, Try another</p>
         </div> <br>";
         echo "<a href ='javascript:self.history.back()'><button class ='btn'> Go Back </button></a>"; 
     } else {
